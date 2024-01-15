@@ -49,8 +49,8 @@ defmodule HipcallOpenai.MixProject do
   def docs do
     [
       main: "readme",
-      name: "HipcallDeepgram",
-      canonical: "https://hex.pm/packages/hipcall_disposable_email",
+      name: "HipcallOpenai",
+      canonical: "https://hex.pm/packages/hipcall_openai",
       source_ref: "v#{@version}",
       source_url: @source_url,
       extras: ["README.md", "CHANGELOG.md", "LICENSE.md"]
