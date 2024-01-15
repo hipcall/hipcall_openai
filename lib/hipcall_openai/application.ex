@@ -8,6 +8,7 @@ defmodule HipcallOpenai.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      {Finch, name: HipcallOpenaiFinch}
       # Starts a worker by calling: HipcallOpenai.Worker.start_link(arg)
       # {HipcallOpenai.Worker, arg}
     ]

@@ -1,13 +1,20 @@
 defmodule HipcallOpenai.MixProject do
   use Mix.Project
 
+  @source_url "https://github.com/hipcall/hipcall_openai"
+  @version "0.1.0"
+
   def project do
     [
       app: :hipcall_openai,
-      version: "0.1.0",
-      elixir: "~> 1.15",
+      name: "HipcallOpenai",
+      description: "Unofficial OpenAI API Wrapper written in Elixir.",
+      version: @version,
+      elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      package: package(),
+      docs: docs()
     ]
   end
 
@@ -22,8 +29,31 @@ defmodule HipcallOpenai.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:finch, "~> 0.17.0"},
+      {:jason, "~> 1.4"},
+      {:nimble_options, "~> 1.1"},
+      {:ex_doc, "~> 0.31", only: :dev, runtime: false}
+    ]
+  end
+
+  def package do
+    [
+      licenses: ["MIT"],
+      links: %{
+        "Website" => "https://www.hipcall.com/en-gb/",
+        "GitHub" => @source_url
+      }
+    ]
+  end
+
+  def docs do
+    [
+      main: "readme",
+      name: "HipcallDeepgram",
+      canonical: "https://hex.pm/packages/hipcall_disposable_email",
+      source_ref: "v#{@version}",
+      source_url: @source_url,
+      extras: ["README.md", "CHANGELOG.md", "LICENSE.md"]
     ]
   end
 end

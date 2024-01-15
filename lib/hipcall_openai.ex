@@ -2,17 +2,12 @@ defmodule HipcallOpenai do
   @moduledoc """
   Documentation for `HipcallOpenai`.
   """
+  alias HipcallOpenai.Config
+  alias HipcallOpenai.Models
 
-  @doc """
-  Hello world.
+  # https://platform.openai.com/docs/api-reference/models/
+  def models(config \\ %Config{}), do: Models.list(config)
 
-  ## Examples
-
-      iex> HipcallOpenai.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
+  # https://platform.openai.com/docs/api-reference/models/retrieve
+  def model(model, config \\ %Config{}), do: Models.retrieve(model, config)
 end

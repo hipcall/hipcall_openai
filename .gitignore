@@ -24,3 +24,4 @@ hipcall_openai-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+NOTES.md
