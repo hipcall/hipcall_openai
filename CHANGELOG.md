@@ -5,4 +5,5 @@
 - Add CHANGELOG.md
 - Add `models` endpoint
 - Add `Config` overwrite feature
-- Add docs
+- Add ex_docs
+- Add `Dependabot` and `c.yml`
