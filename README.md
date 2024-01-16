@@ -12,7 +12,7 @@ by adding `hipcall_openai` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:hipcall_openai, "~> 0.1.0"}
+    {:hipcall_openai, "~> 0.2.0"}
   ]
 end
 ```
