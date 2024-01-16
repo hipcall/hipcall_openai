@@ -5,69 +5,6 @@ defmodule HipcallOpenai.Models do
 
   @endpoint_url "models"
 
-  @doc """
-  List models
-
-  For more information  https://platform.openai.com/docs/api-reference/models
-
-  ## Examples
-
-      iex> iex(1)> HipcallOpenai.models(config_override)
-      ...> {:ok,
-      ...> %{
-      ...>   "data" => [
-      ...>     %{
-      ...>       "created" => 1686588896,
-      ...>       "id" => "gpt-4-0613",
-      ...>       "object" => "model",
-      ...>       "owned_by" => "openai"
-      ...>     },
-      ...>     %{
-      ...>       "created" => 1651172509,
-      ...>       "id" => "curie-search-query",
-      ...>       "object" => "model",
-      ...>       "owned_by" => "openai-dev"
-      ...>     },
-      ...>     %{
-      ...>       "created" => 1687882411,
-      ...>       "id" => "gpt-4",
-      ...>       "object" => "model",
-      ...>       "owned_by" => "openai"
-      ...>     },
-      ...>     %{
-      ...>       "created" => 1651172509,
-      ...>       "id" => "babbage-search-query",
-      ...>       "object" => "model",
-      ...>       "owned_by" => "openai-dev"
-      ...>     },
-      ...>     %{
-      ...>       "created" => 1698785189,
-      ...>       "id" => "dall-e-3",
-      ...>       "object" => "model",
-      ...>       "owned_by" => "system"
-      ...>     }
-      ...>   ],
-      ...>   "object" => "list"
-      ...> }}
-
-  ## Arguments
-
-  - `config`
-
-  ## Options
-
-  There is no options.
-
-  ## Raises
-
-  - There is no exception.
-
-  ## Returns
-
-  - {:ok, Finch.Response.t()}
-  - {:error, Exception.t()}
-
-  """
   @spec list(config :: map) :: {:ok, map()} | {:error, map()} | {:error, any()}
   def list(config \\ %Config{}) do
     Finch.build(:get, "#{Config.api_url()}#{@endpoint_url}", header(config))
@@ -84,41 +21,6 @@ defmodule HipcallOpenai.Models do
     end
   end
 
-  @doc """
-  Retrieve model
-
-  For more information https://platform.openai.com/docs/api-reference/models/retrieve
-
-  ## Examples
-
-      iex> iex(1)> HipcallOpenai.model("gpt-3.5-turbo-instruct", config_override)
-      ...> {:ok,
-      ...>  %{
-      ...>    "created" => 1692901427,
-      ...>    "id" => "gpt-3.5-turbo-instruct",
-      ...>    "object" => "model",
-      ...>    "owned_by" => "system"
-      ...>  }}
-
-  ## Arguments
-
-  - `model`
-  - `config`
-
-  ## Options
-
-  There is no options.
-
-  ## Raises
-
-  There is no exceptions.
-
-  ## Returns
-
-  - {:ok, map()}
-  - {:error, Exception.t()}
-
-  """
   @spec retrieve(model :: String.t(), config :: map) ::
           {:ok, map()} | {:error, map()} | {:error, any()}
   def retrieve(model, config \\ %Config{}) do

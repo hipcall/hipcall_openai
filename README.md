@@ -28,78 +28,23 @@ struct as last argument of the function you need to use. For instance if you nee
 api_key you can simply do:
 
 ```elixir
-config_override = %HipcallOpenai.Config{api_key: "mTRwVrbZ4aoHTyjMepleT3BlbkFJ7zZYazuN7F16XuY3WErl"}
+config_override = %HipcallOpenai.Config{
+  api_key: "mTRwVrbZ4aoHTyjMepleT3BlbkFJ7zZYazuN7F16XuY3WErl",
+  api_organization: "org-blalba"
+}
 # pass the overriden configuration as last argument of the function
 HipcallOpenai.models(config_override)
 ```
 
 ## Use
 
-### Models
-
-#### List
-
-https://platform.openai.com/docs/api-reference/models
-
-```elixir
-iex(1)> HipcallOpenai.models(config_override)
-{:ok,
- %{
-   "data" => [
-     %{
-       "created" => 1686588896,
-       "id" => "gpt-4-0613",
-       "object" => "model",
-       "owned_by" => "openai"
-     },
-     %{
-       "created" => 1651172509,
-       "id" => "curie-search-query",
-       "object" => "model",
-       "owned_by" => "openai-dev"
-     },
-     %{
-       "created" => 1687882411,
-       "id" => "gpt-4",
-       "object" => "model",
-       "owned_by" => "openai"
-     },
-     %{
-       "created" => 1651172509,
-       "id" => "babbage-search-query",
-       "object" => "model",
-       "owned_by" => "openai-dev"
-     },
-     %{
-       "created" => 1698785189,
-       "id" => "dall-e-3",
-       "object" => "model",
-       "owned_by" => "system"
-     }
-   ],
-   "object" => "list"
- }}
-```
-
-#### Retrieve
-
-https://platform.openai.com/docs/api-reference/models/retrieve
-
-```elixir
-iex(1)> HipcallOpenai.model("gpt-3.5-turbo-instruct", config_override)
-{:ok,
- %{
-   "created" => 1692901427,
-   "id" => "gpt-3.5-turbo-instruct",
-   "object" => "model",
-   "owned_by" => "system"
- }}
-```
+Documentation for using, please check the `HipcallOpenai` module.
 
 ## Roadmap
 
+- [x] Add `Models` endpoint
+- [x] Add `Chat` endpoint
 - [ ] Add `Audio` endpoints
-- [ ] Add `Chat` endpoint
 - [ ] Add `Embeddings` endpoint
 - [ ] Add `Fine-tuning` endpoint
 - [ ] Add `Files` endpoint
