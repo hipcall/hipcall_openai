@@ -73,7 +73,8 @@ defmodule HipcallOpenai do
 
   ## Examples
 
-      iex> iex(1)> HipcallOpenai.models(config_override)
+      iex> iex(1)> config_override = %Config{api_key: "asdf_api"}
+      iex> iex(2)> HipcallOpenai.models(config_override)
       ...> {:ok,
       ...> %{
       ...>   "data" => [
