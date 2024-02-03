@@ -313,13 +313,13 @@ defmodule HipcallOpenai do
 
   You can easily create a new mp3 file. For example
 
-      iex> {:ok, finch_body} = HipcallOpenai.audio_create_speech(params, config_override)
-      iex> File.write!("test.mp3", finch_body)
+      iex> {:ok, file_content} = HipcallOpenai.audio_create_speech(params, config_override)
+      iex> File.write!("test.mp3", file_content)
       ...> :ok
 
   ## Arguments
 
-  #{NimbleOptions.docs(@chat_completions_schema)}
+  #{NimbleOptions.docs(@audio_create_speech_schema)}
 
   ## Raises
 
@@ -327,7 +327,7 @@ defmodule HipcallOpenai do
 
   ## Returns
 
-    - `{:ok, Finch.Response.t()}`
+    - `{:ok, file_content}`
     - `{:error, Exception.t()}`
 
   """

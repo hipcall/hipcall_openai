@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.3.0 (2024-02-03)
+
+- Add `audio/speech` endpoint.
+- Improve ExDocs for developer.
+
 ## v0.2.0 (2024-01-16)
 
 - Add `chat/completions` endpoint.
