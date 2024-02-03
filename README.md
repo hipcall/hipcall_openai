@@ -2,8 +2,6 @@
 
 Unofficial OpenAI API Wrapper written in Elixir.
 
-This Hex package is beta right now. [Please use another one](https://hex.pm/packages?search=openai&sort=name).
-
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
@@ -12,7 +10,7 @@ by adding `hipcall_openai` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:hipcall_openai, "~> 0.2.0"}
+    {:hipcall_openai, "~> 0.3.0"}
   ]
 end
 ```
@@ -44,7 +42,7 @@ Documentation for using, please check the `HipcallOpenai` module.
 
 - [x] Add `Models` endpoint
 - [x] Add `Chat` endpoint
-- [ ] Add `Audio` endpoints
+- [x] Add `Audio` endpoints
 - [ ] Add `Embeddings` endpoint
 - [ ] Add `Fine-tuning` endpoint
 - [ ] Add `Files` endpoint
@@ -63,3 +61,4 @@ All [Hipcall](https://www.hipcall.com/en-gb/) libraries:
 - [HipcallDisposableEmail](https://github.com/hipcall/hipcall_disposable_email) - Simple library checking the email's domain is disposable or not.
 - [HipcallDeepgram](https://github.com/hipcall/hipcall_deepgram) - Unofficial Deepgram API Wrapper written in Elixir.
 - [HipcallOpenai](https://github.com/hipcall/hipcall_openai) - Unofficial OpenAI API Wrapper written in Elixir.
+- [HipcallWhichtech](https://github.com/hipcall/hipcall_whichtech) - Find out what the website is built with.

@@ -1,8 +1,5 @@
 defmodule HipcallOpenai.Config do
-  @moduledoc """
-  Reads configuration on application start, parses all environment variables (if any)
-  and caches the final config in memory to avoid parsing on each read afterwards.
-  """
+  @moduledoc false
 
   defstruct api_key: nil,
             api_organization: nil,
