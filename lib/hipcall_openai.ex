@@ -89,7 +89,7 @@ defmodule HipcallOpenai do
       of your available models, or see our Model overview for
       descriptions of them.
       """,
-      default: "text-embedding-ada-002"
+      default: "text-embedding-3-small"
     ],
     dimensions: [
       type: :integer,
