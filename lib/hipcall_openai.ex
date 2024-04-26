@@ -5,6 +5,7 @@ defmodule HipcallOpenai do
   alias HipcallOpenai.Audio.Speech
   alias HipcallOpenai.Chat
   alias HipcallOpenai.Config
+  alias HipcallOpenai.Embeddings
   alias HipcallOpenai.Models
 
   @chat_completions_schema [
@@ -63,6 +64,38 @@ defmodule HipcallOpenai do
       doc: """
       A unique identifier representing your end-user, which can help OpenAI
       to monitor and detect abuse.
+      """
+    ]
+  ]
+
+  @embeddings_completions_schema [
+    input: [
+      type: :string,
+      doc: """
+      Input text to embed, encoded as a string or array of tokens. To
+      embed multiple inputs in a single request, pass an array of
+      strings or array of token arrays. The input must not exceed
+      the max input tokens for the model (8192 tokens for
+      text-embedding-ada-002), cannot be an empty string, and any array
+      must be 2048 dimensions or less. Example Python code for counting
+      tokens.
+      """,
+      default: "Hello world"
+    ],
+    model: [
+      type: :string,
+      doc: """
+      ID of the model to use. You can use the List models API to see all
+      of your available models, or see our Model overview for
+      descriptions of them.
+      """,
+      default: "text-embedding-ada-002"
+    ],
+    dimensions: [
+      type: :integer,
+      doc: """
+      The number of dimensions the resulting output embeddings should
+      have. Only supported in text-embedding-3 and later models.
       """
     ]
   ]
@@ -346,5 +379,79 @@ defmodule HipcallOpenai do
   def audio_create_speech(params, %Config{} = config) do
     NimbleOptions.validate!(params, @audio_create_speech_schema)
     Speech.create(params, config)
+  end
+
+  @doc """
+  Create an embeddings from text.
+
+  For more information
+
+  - https://platform.openai.com/docs/api-reference/embeddings/create
+
+
+  ## Examples
+
+      iex> %HipcallOpenai.Config{
+      iex>   api_key: "YOUR_TOKEN_HERE",
+      iex>   api_organization: "YOUR_ORG_KEY_HERE",
+      iex>   api_url: nil
+      iex> }
+      iex> params = [
+      iex>   model: "text-embedding-3-small",
+      iex>   input: "Hello, I'm an Elixir wrapper for OpenAI."
+      iex> ]
+      iex> HipcallOpenai.embeddings(params, config_override)
+      ...> {:ok,
+      ...> %{
+      ...>   "data" => [
+      ...>     %{
+      ...>       "embedding" => [-0.013500488, -0.034770124, 0.0019566156, -0.018824266,
+      ...>         0.015359989, 0.011392629, -0.037801366, 0.05496991, -0.03713908,
+      ...>         -0.038208928, -0.016697302, -0.06760433, 0.0031203958, 0.004072435,
+      ...>         0.006750244, 0.017779889, -3.7313407e-4, -0.020250732, -0.0106411865,
+      ...>         0.032681372, 0.0011908449, -0.023549436, 0.006208951, 0.011539096,
+      ...>         0.0467932, -0.0011582081, 0.014200985, 0.02036536, -0.009297506,
+      ...>         -0.054103844, 0.05609071, -0.012411534, -0.0534925, -0.007030443,
+      ...>         -0.012233226, -0.011519992, 0.027051922, 0.020403568, -0.007482582,
+      ...>         0.02436456, 0.046258274, -0.05873986, 0.026567942, 5.675618e-4,
+      ...>         -0.073564924, ...],
+      ...>       "index" => 0,
+      ...>       "object" => "embedding"
+      ...>     }
+      ...>   ],
+      ...>   "model" => "text-embedding-3-small",
+      ...>   "object" => "list",
+      ...>   "usage" => %{"prompt_tokens" => 12, "total_tokens" => 12}
+      ...> }}
+
+  ## Arguments
+
+  #{NimbleOptions.docs(@embeddings_completions_schema)}
+
+  ## Raises
+
+    - Raise `NimbleOptions.ValidationError` if params are not valid.
+
+  ## Returns
+
+    - `{:ok, map}`
+    - `{:error, Exception.t()}`
+
+  """
+  @spec embeddings(params :: keyword()) ::
+          {:ok, map()} | {:error, map()} | {:error, any()}
+  def embeddings(params) do
+    NimbleOptions.validate!(params, @embeddings_completions_schema)
+    Embeddings.create(params, %Config{})
+  end
+
+  @doc """
+  The same `embeddings/1` just overwrite config.
+  """
+  @spec embeddings(params :: keyword(), config :: struct()) ::
+          {:ok, map()} | {:error, map()} | {:error, any()}
+  def embeddings(params, %Config{} = config) do
+    NimbleOptions.validate!(params, @embeddings_completions_schema)
+    Embeddings.create(params, config)
   end
 end

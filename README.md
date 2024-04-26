@@ -43,7 +43,7 @@ Documentation for using, please check the `HipcallOpenai` module.
 - [x] Add `Models` endpoint
 - [x] Add `Chat` endpoint
 - [x] Add `Audio` endpoints
-- [ ] Add `Embeddings` endpoint
+- [x] Add `Embeddings` endpoint
 - [ ] Add `Fine-tuning` endpoint
 - [ ] Add `Files` endpoint
 - [ ] Add `Images` endpoint
