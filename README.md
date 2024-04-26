@@ -10,7 +10,7 @@ by adding `hipcall_openai` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:hipcall_openai, "~> 0.3.0"}
+    {:hipcall_openai, "~> 0.5.0"}
   ]
 end
 ```
@@ -43,7 +43,7 @@ Documentation for using, please check the `HipcallOpenai` module.
 - [x] Add `Models` endpoint
 - [x] Add `Chat` endpoint
 - [x] Add `Audio` endpoints
-- [ ] Add `Embeddings` endpoint
+- [x] Add `Embeddings` endpoint
 - [ ] Add `Fine-tuning` endpoint
 - [ ] Add `Files` endpoint
 - [ ] Add `Images` endpoint
