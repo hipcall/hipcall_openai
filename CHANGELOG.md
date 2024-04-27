@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.5.0 (2024-04-26)
+
+- Add `embeddings` endpoint.
+
 ## v0.4.0 (2024-04-01)
 
 - Update hex packages.
