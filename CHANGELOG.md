@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.5.1 (2024-06-26)
+
+- Add automatically publish packages on Hex.pm.
+
 ## v0.5.0 (2024-04-26)
 
 - Add `embeddings` endpoint.
