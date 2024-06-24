@@ -3,6 +3,13 @@
 ## v0.5.1 (2024-06-26)
 
 - Add automatically publish packages on Hex.pm.
+- Update hex packages.
+
+  - ex_doc 0.32.1 => 0.34.1 (minor)
+  - makeup 1.1.1 => 1.1.2
+  - makeup_erlang 0.1.5 => 1.0.0 (major)
+  - mint 1.6.0 => 1.6.1
+  - nimble_options 1.1.0 => 1.1.1
 
 ## v0.5.0 (2024-04-26)
 
