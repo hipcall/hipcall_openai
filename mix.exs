@@ -2,7 +2,7 @@ defmodule HipcallOpenai.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/hipcall/hipcall_openai"
-  @version "0.5.1"
+  @version "0.6.0"
 
   def project do
     [
@@ -10,7 +10,7 @@ defmodule HipcallOpenai.MixProject do
       name: "HipcallOpenai",
       description: "Unofficial OpenAI API Wrapper written in Elixir.",
       version: @version,
-      elixir: "~> 1.14",
+      elixir: "~> 1.16",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       package: package(),
@@ -29,10 +29,10 @@ defmodule HipcallOpenai.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:finch, "~> 0.18"},
+      {:finch, "~> 0.19"},
       {:jason, "~> 1.4"},
       {:nimble_options, "~> 1.1"},
-      {:ex_doc, "~> 0.31", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.34", only: :dev, runtime: false}
     ]
   end
 
