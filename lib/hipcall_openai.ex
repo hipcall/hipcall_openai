@@ -27,6 +27,15 @@ defmodule HipcallOpenai do
         %{role: "user", content: "Hello!"}
       ]
     ],
+    response_format: [
+      type: :map,
+      doc: """
+      Conversely, Structured Outputs via response_format are more suitable when you
+      want to indicate a structured schema for use when the model responds to the user,
+      rather than when the model calls a tool.
+      https://platform.openai.com/docs/guides/structured-outputs/function-calling-vs-response-format
+      """
+    ],
     frequency_penalty: [
       type: :float,
       doc: """

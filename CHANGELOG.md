@@ -1,5 +1,21 @@
 # Changelog
 
+## v0.6.0 (2024-10-28)
+
+- Add `response_format` to chat_completions_schema.
+- Set minimum Elixir version v1.16
+- Update hex packages.
+
+  - earmark_parser 1.4.39 => 1.4.41
+  - ex_doc 0.34.1 => 0.34.2
+  - finch 0.18.0 => 0.19.0 (minor)
+  - hpax 0.2.0 => 1.0.0 (major)
+  - jason 1.4.1 => 1.4.4
+  - makeup_erlang 1.0.0 => 1.0.1
+  - mime 2.0.5 => 2.0.6
+  - mint 1.6.1 => 1.6.2
+  - telemetry 1.2.1 => 1.3.0
+
 ## v0.5.1 (2024-06-26)
 
 - Add automatically publish packages on Hex.pm.
